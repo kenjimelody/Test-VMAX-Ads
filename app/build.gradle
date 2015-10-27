@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    dexOptions {
+        incremental true
+    }
+
+    defaultConfig {
+        applicationId "com.melody.android.testvmax"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+    compile 'com.google.android.gms:play-services:8.1.0'
+    compile(name: 'vmax', ext: 'aar')
+    compile 'com.android.support:multidex:1.0.0'
+    compile files('libs/AudienceNetwork.jar')
+    compile files('libs/tapjoyconnectlibrary.jar')
+    compile files('libs/vungle-publisher-adaptive-id-3.3.1.jar')
+    compile files('libs/adcolony.jar')
+    compile files('libs/chartboost.jar')
+    compile files('libs/FlurryAds-5.6.0.jar')
+    compile files('libs/FlurryAnalytics-5.6.0.jar')
+    compile files('libs/MMSDK.jar')
+    compile(name: 'bee7', ext: 'aar')
+    compile files('libs/InMobi-4.5.5.jar')
+    compile files('libs/dagger-1.2.2.jar')
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile(name: 'unity-ads', ext: 'aar')
+    compile files('libs/javax.inject-1.jar')
+    compile files('libs/mediationsdk-6.3.0.jar')
+}
